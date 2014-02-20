@@ -6,6 +6,10 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha test/*.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidtsuji/sc-cast"
+  },
   "author": "David Tsuji",
   "license": "MIT",
   "devDependencies": {
