@@ -1,0 +1,21 @@
+{
+  "name": "sc-cast",
+  "version": "0.0.0",
+  "description": "Cast values to a specific type",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/*.js"
+  },
+  "author": "David Tsuji",
+  "license": "MIT",
+  "devDependencies": {
+    "should": "~3.1.2",
+    "sinon": "~1.8.2",
+    "mocha": "~1.17.1",
+    "browserify": "~3.28.1"
+  },
+  "dependencies": {
+    "sc-is": "0.0.x",
+    "sc-contains": "0.0.x"
+  }
+}
