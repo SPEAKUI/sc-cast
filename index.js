@@ -41,12 +41,18 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
     case castType === "boolean":
 
       try {
-
-        value = /^(true|1|y|yes)$/i.test( _value.toString() ) ? true : undefined
-
+        value = /^(true|1|y|yes)$/i.test( _value.toString() ) ? true : undefined;
       } catch ( e ) {}
 
-      value = is.a.boolean( value ) ? value : ( is.not.nullOrUndefined( _default ) ? _default : false )
+      if ( is.not.a.boolean( value ) ) {
+
+        try {
+          value = /^(false|-1|0|n|no)$/i.test( _value.toString() ) ? false : undefined;
+        } catch ( e ) {}
+
+      }
+
+      value = is.a.boolean( value ) ? value : undefined;
 
       break;
 
@@ -117,7 +123,7 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
     value = values[ 0 ];
   }
 
-  return is.not.nullOrUndefined( value ) ? value : _default || null;
+  return is.not.undefined( value ) ? value : _default || null;
 
 };
 

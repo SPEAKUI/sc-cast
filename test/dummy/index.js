@@ -17,9 +17,10 @@ exports.tests = [ {
     true, "true", 1, "y", "yes",
     false, "false", 0, -1, "chicken", "", null, undefined
   ],
+  defaults: [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
   expected: [
     true, true, true, true, true,
-    false, false, false, false, false, false, false, false
+    false, false, false, false, null, null, null, null
   ]
 }, {
   type: "date",
