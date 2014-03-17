@@ -1,6 +1,6 @@
 {
   "name": "sc-cast",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cast values to a specific type",
   "main": "index.js",
   "scripts": {
