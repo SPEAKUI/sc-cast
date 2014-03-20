@@ -17,10 +17,10 @@ exports.tests = [ {
     true, "true", 1, "y", "yes",
     false, "false", 0, -1, "chicken", "", null, undefined
   ],
-  defaults: [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+  defaults: [ null, null, null, null, null, null, null, null, null, false, null, null, null ],
   expected: [
     true, true, true, true, true,
-    false, false, false, false, null, null, null, null
+    false, false, false, false, false, null, null, null
   ]
 }, {
   type: "date",
@@ -45,12 +45,12 @@ exports.tests = [ {
 }, {
   type: "integer",
   values: [
-    0, -10, "0", "00", "10", "10.1", "-10", "cheese", "10e6",
-    false, null, true, "wat"
+    0, -10, "0", "00", "10", "10.1", "-10", "10e6",
+    "cheese", false, null, true, "wat"
   ],
   expected: [
-    0, -10, 0, 0, 10, 10, -10, null, 10000000,
-    null, null, null, null
+    0, -10, 0, 0, 10, 10, -10, 10000000,
+    null, null, null, null, null
   ]
 }, {
   type: "string",
