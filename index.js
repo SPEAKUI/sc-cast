@@ -4,7 +4,7 @@ var contains = require( "sc-contains" ),
 var cast = function ( _value, _castType, _default, _values, _additionalProperties ) {
 
   var parsedValue,
-    castType = _castType,
+    castType = _castType.toLowerCase(),
     value,
     values = is.an.array( _values ) ? _values : [];
 
@@ -61,27 +61,19 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
       try {
 
         value = new Date( _value );
-        value = isNaN( value.getTime() ) ? undefined : value;
 
+        value = isNaN( value.getTime() ) ? undefined : value;
       } catch ( e ) {}
 
       break;
 
     case castType === "string":
+      if (is.a.string( _value )) {
+        value = _value
+      }
 
-      try {
-
-        value = JSON.stringify( _value );
-        if ( is.undefined( value ) ) {
-          throw "";
-        }
-
-      } catch ( e ) {
-
-        try {
-          value = _value.toString()
-        } catch ( e ) {}
-
+      if ( is.a.boolean( _value ) || is.a.number( _value ) ) {
+        value = _value.toString();
       }
 
       break;
@@ -89,7 +81,13 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
     case castType === "number":
 
       try {
+
+        if( is.a.array( _value ) || is.a.guid( _value ) ) {
+          throw "wrong number"; 
+        }
+
         value = parseFloat( _value );
+
         if ( is.not.a.number( value ) || isNaN( value ) ) {
           value = undefined;
         }
@@ -100,7 +98,7 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
       if ( value !== undefined ) {
         switch ( true ) {
         case _castType === "integer":
-          value = parseInt( value );
+          value = parseInt( value, 10 );
           break;
         }
       }
@@ -123,7 +121,7 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
     value = values[ 0 ];
   }
 
-  return is.not.undefined( value ) ? value : _default || null;
+  return is.not.undefined( value ) ? value : is.not.undefined( _default ) ? _default : null;
 
 };
 

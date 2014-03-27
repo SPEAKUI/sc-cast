@@ -25,11 +25,11 @@ exports.tests = [ {
 }, {
   type: "date",
   values: [
-    new Date( 1997, 7, 29 ), "29 aug 1997", "1997-08-28T14:00:00.000Z", 872776800000, 0, false, null,
+    new Date( 1997, 7, 29 ), "29 aug 1997", "1997-08-29T14:00:00.000Z", 872776800000, 0, false, null,
     "872776800000", "", undefined
   ],
   expected: [
-    new Date( 1997, 7, 29 ), new Date( 1997, 7, 29 ), new Date( 1997, 7, 29 ), new Date( 1997, 7, 29 ), new Date( 0 ), new Date( false ), new Date( null ),
+    new Date( 1997, 7, 29 ), new Date( 1997, 7, 29 ), new Date( "1997-08-29T14:00:00.000Z" ), new Date( 872776800000 ), new Date( 0 ), new Date( false ), new Date( null ),
     null, null, null
   ]
 }, {
@@ -59,6 +59,6 @@ exports.tests = [ {
     null
   ],
   expected: [
-    "chicken", "true", "false", "5", "[]", "{}", "null"
+    "chicken", "true", "false", "5", null, null, null
   ]
 } ];

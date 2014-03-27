@@ -14,6 +14,7 @@ describe( "sc-cast", function () {
 
         it( "should cast **" + value + "** to a **" + type + "**", function () {
 
+          
           var defaultValue = Array.isArray( test[ "defaults" ] ) ? test.defaults[ i ] === "*" ? undefined : test.defaults[ i ] : undefined;
 
           should( test.expected[ i ] ).eql( cast( value, type, defaultValue ) );
