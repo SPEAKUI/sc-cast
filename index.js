@@ -6,7 +6,8 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
   var parsedValue,
     castType = _castType.toLowerCase(),
     value,
-    values = is.an.array( _values ) ? _values : [];
+    values = is.an.array( _values ) ? _values : [],
+    alreadyCorrectlyTyped;
 
   switch ( true ) {
   case ( /float|integer/.test( castType ) ):
@@ -14,7 +15,13 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
     break;
   }
 
-  if ( is.a[ castType ]( _value ) || castType === '*' ) {
+  if ( is.a.hasOwnProperty( castType ) ) {
+    alreadyCorrectlyTyped = is.a[ castType ]( _value );
+  } else if ( castType === '*' ) {
+    alreadyCorrectlyTyped = true;
+  }
+
+  if ( alreadyCorrectlyTyped ) {
 
     value = _value;
 
