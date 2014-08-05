@@ -61,4 +61,22 @@ exports.tests = [ {
   expected: [
     "chicken", "true", "false", "5", null, null, null
   ]
+}, {
+  type: "*",
+  values: [
+    [ 1, 2 ],
+    [], {}, {
+      a: 'a',
+      b: 'b'
+    },
+    true, false, new Date( 1997, 7, 29 ), 0, 1, -1, 0.1, -1.1, 11000000, '', 'chicken', null, undefined
+  ],
+  expected: [
+    [ 1, 2 ],
+    [], {}, {
+      a: 'a',
+      b: 'b'
+    },
+    true, false, new Date( 1997, 7, 29 ), 0, 1, -1, 0.1, -1.1, 11000000, '', 'chicken', null, undefined
+  ]
 } ];
