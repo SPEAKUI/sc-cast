@@ -63,7 +63,7 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
 
       break;
 
-    case castType === "date":
+    case ( castType === "date" || castType === "datetime" ):
 
       try {
 
