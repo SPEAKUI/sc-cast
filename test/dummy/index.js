@@ -71,6 +71,7 @@ exports.tests = [ {
     },
     true, false, new Date( 1997, 7, 29 ), 0, 1, -1, 0.1, -1.1, 11000000, '', 'chicken', null, undefined
   ],
+  defaults: [ 1 ],
   expected: [
     [ 1, 2 ],
     [], {}, {

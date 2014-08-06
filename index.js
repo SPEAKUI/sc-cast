@@ -75,7 +75,7 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
       break;
 
     case castType === "string":
-      if (is.a.string( _value )) {
+      if ( is.a.string( _value ) ) {
         value = _value
       }
 
@@ -89,8 +89,8 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
 
       try {
 
-        if( is.a.array( _value ) || is.a.guid( _value ) ) {
-          throw "wrong number"; 
+        if ( is.a.array( _value ) || is.a.guid( _value ) ) {
+          throw "wrong number";
         }
 
         value = parseFloat( _value );
@@ -128,7 +128,7 @@ var cast = function ( _value, _castType, _default, _values, _additionalPropertie
     value = values[ 0 ];
   }
 
-  return is.not.undefined( value ) ? value : is.not.undefined( _default ) ? _default : null;
+  return alreadyCorrectlyTyped || is.not.undefined( value ) ? value : is.not.undefined( _default ) ? _default : null;
 
 };
 
